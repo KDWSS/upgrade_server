@@ -81,7 +81,16 @@ mkdir layers && cd layers
 git clone git://git.yoctoproject.org/poky -b zeus
 git clone git://github.com/openembedded/meta-openembedded.git -b zeus
 git clone https://github.com/agherzan/meta-raspberrypi.git -b zeus
+
+```
+
+Checkout the particular version of the meta-swupdate
+
+```
 git clone https://github.com/sbabic/meta-swupdate -b zeus
+cd meta-swupdate
+git checkout 8ad6a75e1778cdda671b3d6aea2a9692613020ec
+cd ..
 
 ```
 
@@ -107,9 +116,10 @@ Add the special layers for upgrade server
 
 ```
 bitbake-layers add-layer ../layers/meta-swupdate-rpi
-bitbake-layers add-layer ../meta-upgrade-server
+bitbake-layers add-layer ../layers/meta-upgrade-server
 ```
-Add the following lines in conf.local
+
+Add the following lines in conf/local.conf
 
 ```
 MACHINE = "raspberrypi3"
